@@ -1,0 +1,241 @@
+metadata:
+  name: "E-Commerce Clean Architecture"
+  architecture: "clean"
+  description: "Пример FastAPI проекта с Clean Architecture"
+  version: "1.0.0"
+
+structure:
+  files:
+    # Core packages
+    - path: "src/__init__.py"
+      class: "SrcPackage"
+      type: "package"
+
+    - path: "src/main.py"
+      class: "MainApp"
+      type: "main"
+      template: "main"
+
+    # Domain Layer
+    - path: "src/domain/__init__.py"
+      class: "DomainPackage"
+      type: "package"
+
+    - path: "src/domain/entities/__init__.py"
+      class: "EntitiesPackage"
+      type: "package"
+
+    - path: "src/domain/entities/user.py"
+      class: "User"
+      type: "model"
+      template: "domain_entity"
+
+    - path: "src/domain/entities/product.py"
+      class: "Product"
+      type: "model"
+      template: "domain_entity"
+
+    - path: "src/domain/entities/order.py"
+      class: "Order"
+      type: "model"
+      template: "domain_entity"
+
+    - path: "src/domain/entities/order_item.py"
+      class: "OrderItem"
+      type: "model"
+      template: "domain_entity"
+
+    - path: "src/domain/entities/category.py"
+      class: "Category"
+      type: "model"
+      template: "domain_entity"
+
+    - path: "src/domain/repositories/__init__.py"
+      class: "RepositoriesPackage"
+      type: "package"
+
+    - path: "src/domain/repositories/user_repository.py"
+      class: "UserRepository"
+      type: "repository"
+      template: "domain_repository"
+
+    - path: "src/domain/repositories/product_repository.py"
+      class: "ProductRepository"
+      type: "repository"
+      template: "domain_repository"
+
+    - path: "src/domain/repositories/order_repository.py"
+      class: "OrderRepository"
+      type: "repository"
+      template: "domain_repository"
+
+    - path: "src/domain/repositories/category_repository.py"
+      class: "CategoryRepository"
+      type: "repository"
+      template: "domain_repository"
+
+    # Application Layer
+    - path: "src/application/__init__.py"
+      class: "ApplicationPackage"
+      type: "package"
+
+    - path: "src/application/use_cases/__init__.py"
+      class: "UseCasesPackage"
+      type: "package"
+
+    - path: "src/application/use_cases/create_user.py"
+      class: "CreateUserUseCase"
+      type: "service"
+      template: "use_case"
+
+    - path: "src/application/use_cases/get_user.py"
+      class: "GetUserUseCase"
+      type: "service"
+      template: "use_case"
+
+    - path: "src/application/use_cases/create_product.py"
+      class: "CreateProductUseCase"
+      type: "service"
+      template: "use_case"
+
+    - path: "src/application/use_cases/get_products.py"
+      class: "GetProductsUseCase"
+      type: "service"
+      template: "use_case"
+
+    - path: "src/application/use_cases/create_order.py"
+      class: "CreateOrderUseCase"
+      type: "service"
+      template: "use_case"
+
+    - path: "src/application/use_cases/get_order.py"
+      class: "GetOrderUseCase"
+      type: "service"
+      template: "use_case"
+
+    - path: "src/application/use_cases/authenticate_user.py"
+      class: "AuthenticateUserUseCase"
+      type: "service"
+      template: "use_case"
+
+    # Infrastructure Layer
+    - path: "src/infrastructure/__init__.py"
+      class: "InfrastructurePackage"
+      type: "package"
+
+    - path: "src/infrastructure/database/__init__.py"
+      class: "DatabasePackage"
+      type: "package"
+
+    - path: "src/infrastructure/database/database.py"
+      class: "DatabaseConfig"
+      type: "database"
+      template: "database_config"
+
+    - path: "src/infrastructure/database/models.py"
+      class: "SQLUser"
+      type: "model"
+      template: "infrastructure_model"
+
+    - path: "src/infrastructure/database/models.py"
+      class: "SQLProduct"
+      type: "model"
+      template: "infrastructure_model"
+
+    - path: "src/infrastructure/database/models.py"
+      class: "SQLOrder"
+      type: "model"
+      template: "infrastructure_model"
+
+    - path: "src/infrastructure/database/user_repository.py"
+      class: "SQLAlchemyUserRepository"
+      type: "repository"
+      template: "infrastructure_repository"
+
+    - path: "src/infrastructure/database/product_repository.py"
+      class: "SQLAlchemyProductRepository"
+      type: "repository"
+      template: "infrastructure_repository"
+
+    - path: "src/infrastructure/database/order_repository.py"
+      class: "SQLAlchemyOrderRepository"
+      type: "repository"
+      template: "infrastructure_repository"
+
+    - path: "src/infrastructure/web/__init__.py"
+      class: "WebPackage"
+      type: "package"
+
+    - path: "src/infrastructure/web/fastapi_app.py"
+      class: "FastAPIApp"
+      type: "main"
+      template: "web_app"
+
+    - path: "src/infrastructure/web/middleware.py"
+      class: "CustomMiddleware"
+      type: "util"
+      template: "middleware"
+
+    # Interface Adapters
+    - path: "src/interface_adapters/__init__.py"
+      class: "InterfaceAdaptersPackage"
+      type: "package"
+
+    - path: "src/interface_adapters/schemas/__init__.py"
+      class: "SchemasPackage"
+      type: "package"
+
+    - path: "src/interface_adapters/schemas/user.py"
+      class: "UserCreate"
+      type: "schema"
+      template: "interface_schema"
+
+    - path: "src/interface_adapters/schemas/user.py"
+      class: "UserResponse"
+      type: "schema"
+      template: "interface_schema"
+
+    - path: "src/interface_adapters/schemas/product.py"
+      class: "ProductCreate"
+      type: "schema"
+      template: "interface_schema"
+
+    - path: "src/interface_adapters/schemas/product.py"
+      class: "ProductResponse"
+      type: "schema"
+      template: "interface_schema"
+
+    - path: "src/interface_adapters/schemas/order.py"
+      class: "OrderCreate"
+      type: "schema"
+      template: "interface_schema"
+
+    - path: "src/interface_adapters/schemas/order.py"
+      class: "OrderResponse"
+      type: "schema"
+      template: "interface_schema"
+
+    - path: "src/interface_adapters/controllers/__init__.py"
+      class: "ControllersPackage"
+      type: "package"
+
+    - path: "src/interface_adapters/controllers/user_controller.py"
+      class: "UserController"
+      type: "controller"
+      template: "controller"
+
+    - path: "src/interface_adapters/controllers/product_controller.py"
+      class: "ProductController"
+      type: "controller"
+      template: "controller"
+
+    - path: "src/interface_adapters/controllers/order_controller.py"
+      class: "OrderController"
+      type: "controller"
+      template: "controller"
+
+    - path: "src/interface_adapters/controllers/auth_controller.py"
+      class: "AuthController"
+      type: "controller"
+      template: "controller"
+  

@@ -1,0 +1,24 @@
+metadata:
+  name: "User Management API"
+  architecture: "layered"
+  description: "Пример FastAPI проекта с Layered Architecture"
+  version: "1.0.0"
+
+structure:
+  files:
+    - path: "app/__init__.py"
+      class: "AppPackage"
+      type: "package"
+    
+    - path: "app/main.py"
+      class: "MainApp"
+      type: "main"
+      template: "main"
+    
+    - path: "app/core/config.py"
+      class: "Settings"
+      type: "config"
+    
+    - path: "app/models/user.py"
+      class: "User"
+      type: "model"

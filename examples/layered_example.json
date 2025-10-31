@@ -1,0 +1,171 @@
+{
+  "architecture": "layered",
+  "project_name": "User Management API",
+  "description": "Пример FastAPI проекта с Layered Architecture",
+  "files": [
+    {
+      "file": "app/__init__.py",
+      "class": "AppPackage"
+    },
+    {
+      "file": "app/main.py",
+      "class": "MainApp"
+    },
+    {
+      "file": "app/core/__init__.py",
+      "class": "CorePackage"
+    },
+    {
+      "file": "app/core/config.py",
+      "class": "Settings"
+    },
+    {
+      "file": "app/core/security.py",
+      "class": "SecurityUtils"
+    },
+    {
+      "file": "app/db/__init__.py",
+      "class": "DatabasePackage"
+    },
+    {
+      "file": "app/db/session.py",
+      "class": "DatabaseSession"
+    },
+    {
+      "file": "app/models/__init__.py",
+      "class": "ModelsPackage"
+    },
+    {
+      "file": "app/models/user.py",
+      "class": "User"
+    },
+    {
+      "file": "app/models/product.py",
+      "class": "Product"
+    },
+    {
+      "file": "app/models/order.py",
+      "class": "Order"
+    },
+    {
+      "file": "app/schemas/__init__.py",
+      "class": "SchemasPackage"
+    },
+    {
+      "file": "app/schemas/user.py",
+      "class": "UserCreate"
+    },
+    {
+      "file": "app/schemas/user.py",
+      "class": "UserUpdate"
+    },
+    {
+      "file": "app/schemas/user.py",
+      "class": "UserResponse"
+    },
+    {
+      "file": "app/schemas/product.py",
+      "class": "ProductCreate"
+    },
+    {
+      "file": "app/schemas/product.py",
+      "class": "ProductResponse"
+    },
+    {
+      "file": "app/schemas/order.py",
+      "class": "OrderCreate"
+    },
+    {
+      "file": "app/schemas/order.py",
+      "class": "OrderResponse"
+    },
+    {
+      "file": "app/repositories/__init__.py",
+      "class": "RepositoriesPackage"
+    },
+    {
+      "file": "app/repositories/user_repository.py",
+      "class": "UserRepository"
+    },
+    {
+      "file": "app/repositories/product_repository.py",
+      "class": "ProductRepository"
+    },
+    {
+      "file": "app/repositories/order_repository.py",
+      "class": "OrderRepository"
+    },
+    {
+      "file": "app/services/__init__.py",
+      "class": "ServicesPackage"
+    },
+    {
+      "file": "app/services/user_service.py",
+      "class": "UserService"
+    },
+    {
+      "file": "app/services/product_service.py",
+      "class": "ProductService"
+    },
+    {
+      "file": "app/services/order_service.py",
+      "class": "OrderService"
+    },
+    {
+      "file": "app/services/auth_service.py",
+      "class": "AuthService"
+    },
+    {
+      "file": "app/api/__init__.py",
+      "class": "ApiPackage"
+    },
+    {
+      "file": "app/api/v1/__init__.py",
+      "class": "V1Package"
+    },
+    {
+      "file": "app/api/v1/api.py",
+      "class": "ApiRouter"
+    },
+    {
+      "file": "app/api/v1/endpoints/__init__.py",
+      "class": "EndpointsPackage"
+    },
+    {
+      "file": "app/api/v1/endpoints/users.py",
+      "class": "UserRouter"
+    },
+    {
+      "file": "app/api/v1/endpoints/products.py",
+      "class": "ProductRouter"
+    },
+    {
+      "file": "app/api/v1/endpoints/orders.py",
+      "class": "OrderRouter"
+    },
+    {
+      "file": "app/api/v1/endpoints/auth.py",
+      "class": "AuthRouter"
+    },
+    {
+      "file": "tests/__init__.py",
+      "class": "TestsPackage"
+    },
+    {
+      "file": "tests/test_models.py",
+      "class": "TestModels"
+    },
+    {
+      "file": "tests/test_services.py",
+      "class": "TestServices"
+    },
+    {
+      "file": "tests/test_repositories.py",
+      "class": "TestRepositories"
+    },
+    {
+      "file": "tests/test_api.py",
+      "class": "TestAPI"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+# Пример структуры Modular Architecture для Blog API
+# Файлы генерируются с автоматическим определением классов
+
+blog_api/
+├── app/
+│   ├── __init__.py              # → AppPackage
+│   ├── main.py                  # → MainApp
+│   ├── database.py              # → DatabaseConfig
+│   ├── models.py                # → BaseModel
+│   ├── schemas.py               # → BaseSchema
+│   ├── dependencies.py          # → Dependencies
+│   ├── config.py                # → Settings
+│   │
+│   ├── routers/
+│   │   ├── __init__.py          # → RoutersPackage
+│   │   ├── users.py             # → UserRouter
+│   │   ├── posts.py             # → PostRouter
+│   │   ├── comments.py          # → CommentRouter
+│   │   └── auth.py              # → AuthRouter
+│   │
+│   ├── models/
+│   │   ├── __init__.py          # → ModelsPackage
+│   │   ├── user.py              # → User
+│   │   ├── post.py              # → Post
+│   │   ├── comment.py           # → Comment
+│   │   └── category.py          # → Category
+│   │
+│   ├── schemas/
+│   │   ├── __init__.py          # → SchemasPackage
+│   │   ├── user.py              # → UserCreate
+│   │   ├── user.py              # → UserUpdate
+│   │   ├── user.py              # → UserResponse
+│   │   ├── post.py              # → PostCreate
+│   │   ├── post.py              # → PostUpdate
+│   │   ├── post.py              # → PostResponse
+│   │   ├── comment.py           # → CommentCreate
+│   │   ├── comment.py           # → CommentResponse
+│   │   ├── category.py          # → CategoryCreate
+│   │   └── category.py          # → CategoryResponse
+│   │
+│   ├── crud/
+│   │   ├── __init__.py          # → CRUDPackage
+│   │   ├── user.py              # → UserCRUD
+│   │   ├── post.py              # → PostCRUD
+│   │   ├── comment.py           # → CommentCRUD
+│   │   └── category.py          # → CategoryCRUD
+│   │
+│   └── utils/
+│       ├── __init__.py          # → UtilsPackage
+│       ├── security.py          # → SecurityUtils
+│       ├── validation.py        # → ValidationUtils
+│       └── pagination.py        # → PaginationUtils
+│
+├── alembic/
+│   ├── __init__.py              # → AlembicPackage
+│   ├── env.py                   # → AlembicEnv
+│   └── versions/
+│       └── __init__.py          # → VersionsPackage
+│
+├── scripts/
+│   ├── __init__.py              # → ScriptsPackage
+│   ├── create_admin.py          # → CreateAdminScript
+│   └── seed_data.py             # → SeedDataScript
+│
+└── docs/
+    ├── __init__.py              # → DocsPackage
+    └── api_docs.py              # → APIDocs
