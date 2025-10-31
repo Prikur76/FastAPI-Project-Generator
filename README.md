@@ -1,5 +1,8 @@
 # FastAPI Project Generator 🚀
 
+[![Python](https://img.shields.io/badge/Python-3.12+-blue.svg)](https://python.org)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
 Умный генератор FastAPI проектов на основе описания с поддержкой различных архитектур и менеджера пакетов `uv`.
 
 ## ✨ Особенности
