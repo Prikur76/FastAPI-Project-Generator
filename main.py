@@ -100,9 +100,8 @@ def main():
         shutil.rmtree(temp_project_root)
         final_project_path = zip_file_path
     else:
-        # Переносим папку проекта в output или оставляем на месте
         if args.zip:
-            # Если создавали ZIP, но не только ZIP - оставляем и папку и ZIP
+            # Переносим папку проекта в output
             final_project_dir = get_output_path(output_name)
             if final_project_dir.exists():
                 shutil.rmtree(final_project_dir)
@@ -113,7 +112,7 @@ def main():
             # Без ZIP - оставляем папку в текущей директории
             final_project_path = temp_project_root
     
-    # Статистика
+    # Статистика - ТОЛЬКО ОДИН РАЗ
     _print_statistics(file_data, architecture, final_project_path, args, zip_file_path)
     
     print(f"\n🚀 Для начала работы:")
@@ -122,17 +121,17 @@ def main():
         print(f"   uv sync")
         print(f"   uv run dev")
     else:
-        print(f"   📦 Архив готов: {zip_file_path}")
+        print(f"   📦 Архив готов: {final_project_path}")
 
 
 def _print_statistics(file_data, architecture, project_path, args, zip_path=None):
     """Выводит статистику проекта."""
     entities = sum(1 for project_file in file_data 
-                  if 'entities' in project_file.path or 'models' in project_file.path)
+                  if 'entities' in project_file.normalized_path or 'models' in project_file.normalized_path)
     services = sum(1 for project_file in file_data 
-                  if 'services' in project_file.path or 'use_cases' in project_file.path)
+                  if 'services' in project_file.normalized_path or 'use_cases' in project_file.normalized_path)
     routers = sum(1 for project_file in file_data 
-                 if 'routers' in project_file.path or 'endpoints' in project_file.path)
+                 if 'routers' in project_file.normalized_path or 'endpoints' in project_file.normalized_path)
     total_files = len(file_data)
     
     print(f"📊 Статистика:")

@@ -24,8 +24,27 @@ class TestGenerator(BaseGenerator):
         
         print(f"🧪 Генерация тестов для {len(files_to_test)} файлов")
         
+        # Используем set для отслеживания уже созданных тестов
+        created_tests = set()
+        
         for project_file in files_to_test:
-            self._generate_test_file(project_root, project_file)
+            test_path = self._get_test_path(project_root, project_file)
+            
+            # Проверяем, не создавали ли мы уже тест для этого пути
+            if test_path.as_posix() in created_tests:
+                continue
+                
+            # Проверяем, не существует ли уже тест
+            if test_path.exists():
+                print(f"⚠️  Тест уже существует: {test_path}")
+                continue
+            
+            self._ensure_directory(test_path.parent)
+            
+            content = self._generate_test_content(project_file, test_path)
+            test_path.write_text(content, encoding='utf-8')
+            print(f"✅ Создан тест: {test_path}")
+            created_tests.add(test_path.as_posix())
     
     def _filter_files_for_testing(self, project_files: List[ProjectFile]) -> List[ProjectFile]:
         """Фильтрует файлы для которых нужно генерировать тесты."""
