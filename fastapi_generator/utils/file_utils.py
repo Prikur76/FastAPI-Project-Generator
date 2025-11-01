@@ -13,14 +13,14 @@ def ensure_output_dir() -> Path:
     return output_dir
 
 
-def get_output_path(filename: str, output_dir: Path = None) -> Path:
+def get_output_path(filename: str, output_dir: Path | None = None) -> Path:
     """Возвращает полный путь в директории output."""
     if output_dir is None:
         output_dir = ensure_output_dir()
     return output_dir / filename
 
 
-def zip_directory(folder_path: Path, zip_path: Path = None) -> Path:
+def zip_directory(folder_path: Path, zip_path: Path | None = None) -> Path:
     """Создает ZIP-архив папки в директории output."""
     if zip_path is None:
         zip_name = f"{folder_path.name}.zip"
